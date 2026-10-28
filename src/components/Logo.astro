@@ -1,5 +1,10 @@
-<svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-  <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5"></circle>
-  <path d="M18 2v32M2 18h32" stroke="currentColor" stroke-width="0.75"></path>
-  <path d="M8 24c4-6 8-2 10-8s6-6 10-4" stroke="#B4441A" stroke-width="2" stroke-linecap="round"></path>
+---
+// Logo "Ventana de mapa": recuadro de mapa abierto por donde sale un río.
+interface Props { size?: number }
+const { size = 36 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+  <path d="M104 38 V16 H16 V104 H104 V74" stroke="currentColor" stroke-width="8"></path>
+  <path d="M16 92 C34 92, 34 66, 52 64 S76 60, 84 56 S106 56, 118 56" stroke="#1D5B79" stroke-width="8.5" stroke-linecap="round"></path>
+  <circle cx="52" cy="64" r="7" fill="#B4441A"></circle>
 </svg>

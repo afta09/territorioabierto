@@ -5,7 +5,7 @@ import { SITIO, url } from '../config';
 
 interface Props { titulo?: string; descripcion?: string; seccion?: 'estudios' | 'fotografia' | 'videos' }
 const { titulo, descripcion = SITIO.descripcion, seccion } = Astro.props;
-const tituloCompleto = titulo ? `${titulo} · ${SITIO.nombre}` : SITIO.nombre;
+const tituloCompleto = titulo ? `${titulo} · ${SITIO.nombre}` : `${SITIO.nombre} — ${SITIO.eslogan}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const enlaces = [
   { id: 'estudios', num: '01', texto: 'Estudios', href: url('/estudios/') },
@@ -24,6 +24,8 @@ const nombresRedes: Record<string, string> = { youtube: 'YouTube', instagram: 'I
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('/marca/icono-512.png')} />
+    <meta property="og:image" content={new URL(url('/marca/logo-horizontal.png'), Astro.site)} />
     <meta property="og:title" content={tituloCompleto} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
@@ -46,7 +48,7 @@ const nombresRedes: Record<string, string> = { youtube: 'YouTube', instagram: 'I
     <main><slot /></main>
     <footer class="pie">
       <div class="contenedor">
-        <span>© {new Date().getFullYear()} {SITIO.nombre} · {SITIO.autor}</span>
+        <span>© {new Date().getFullYear()} {SITIO.nombre} · {SITIO.eslogan}</span>
         {redes.length > 0 && (
           <nav aria-label="Redes">
             {redes.map(([k, v]) => <a href={v} target="_blank" rel="noopener">{nombresRedes[k] ?? k} ↗</a>)}
