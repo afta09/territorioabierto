@@ -143,7 +143,7 @@ a:hover { color: var(--acento); }
 .prosa .figura svg g:hover path { opacity: .85; }
 
 /* Barrido comparativo (antes / después) */
-.barrido { --pos: 50%; position: relative; overflow: hidden; border: var(--linea); background: var(--campo); user-select: none; touch-action: pan-y; }
+.barrido { --pos: 50%; max-width: 600px; margin: 0 auto; position: relative; overflow: hidden; border: var(--linea); background: var(--campo); user-select: none; touch-action: pan-y; }
 .barrido img, .prosa .figura .barrido img { display: block; width: 100%; height: auto; max-height: none; margin: 0; border: 0; pointer-events: none; }
 .barrido .barrido-antes { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .barrido .barrido-antes img { width: 100%; height: 100%; object-fit: cover; }

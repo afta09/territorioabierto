@@ -75,9 +75,9 @@ El monitoreo de Naciones Unidas y el Gobierno nacional (EVOA 2025) registró **4
 
 Para ver el cambio con nuestros propios ojos, analizamos con **Google Earth Engine** el corredor **Quibdó – Bagadó – Istmina – Condoto**, donde se concentra la minería con dragas y retroexcavadoras sobre el Atrato y sus afluentes. El área de análisis es un rectángulo de unos 6.250 km² (recuadro naranja en la Figura 1).
 
-<!-- BARRIDO: se activa cuando estén las imágenes landsat-1999-2000.jpg y landsat-2023-2025.jpg
 <figure class="figura">
 <p class="figura-titulo">Arrastra la línea para comparar 1999-2000 con 2023-2025</p>
+<p class="barrido-ayuda" style="margin:-6px 0 12px">Fíjate en los cauces al sur de Quibdó, sobre el río Quito: las manchas ocres que aparecen en 2023-2025 son frentes mineros.</p>
 <div class="barrido" data-barrido>
 <img src="/estudios/atrato/landsat-2023-2025.jpg" alt="Imagen satelital Landsat 8 y 9 en color real del corredor Quibdó, Bagadó, Istmina y Condoto, periodo 2023 a 2025" />
 <div class="barrido-antes"><img src="/estudios/atrato/landsat-1999-2000.jpg" alt="Imagen satelital Landsat 5 en color real del mismo corredor, periodo 1998 a 2001" /></div>
@@ -89,9 +89,8 @@ Para ver el cambio con nuestros propios ojos, analizamos con **Google Earth Engi
 <div class="barrido-foco"></div>
 </div>
 <p class="barrido-ayuda">A la izquierda de la línea, 1999-2000; a la derecha, 2023-2025. También puedes usar las flechas del teclado.</p>
-<figcaption><strong>Figura 4.</strong> Compuestos de mediana en color real. Izquierda: Landsat 5 TM, 1998-2001. Derecha: Landsat 8 y 9 OLI, 2023-2025. Nubes enmascaradas con la banda QA_PIXEL. Elaboración propia en Google Earth Engine.</figcaption>
+<figcaption><strong>Figura 4.</strong> Compuestos de mediana en color real. Izquierda: Landsat 5 TM, 1998-2001. Derecha: Landsat 8 y 9 OLI, 2023-2025. Nubes enmascaradas con la banda QA_PIXEL; las manchas negras son zonas sin datos por nubosidad persistente. Elaboración propia en Google Earth Engine.</figcaption>
 </figure>
-FIN BARRIDO -->
 
 **Cómo se hizo.** El Chocó es una de las regiones más nubladas del planeta, así que cada periodo se construyó con la **mediana de todas las imágenes Landsat sin nubes** de varios años: 1998 a 2001 para el periodo histórico y 2023 a 2025 para el reciente. Con esos compuestos se calcularon tres indicadores:
 
