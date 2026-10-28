@@ -1,0 +1,32 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import MapaRelleno from '../../components/MapaRelleno.astro';
+import { estudios, fechaLarga } from '../../lib';
+import { url } from '../../config';
+
+export async function getStaticPaths() {
+  return (await estudios()).map((estudio) => ({ params: { id: estudio.id }, props: { estudio } }));
+}
+const { estudio } = Astro.props;
+const d = estudio.data;
+const { Content } = await render(estudio);
+---
+<Base titulo={d.titulo} descripcion={d.resumen} seccion="estudios">
+  <header class="encabezado-articulo">
+    <div class="contenedor">
+      <a class="mono" style="font-size:14px" href={url('/estudios/')}>← Estudios</a>
+      <div class="etiqueta">{d.tema}{d.estado === 'en curso' ? ' · en curso' : ''}</div>
+      <h1>{d.titulo}</h1>
+      <p class="resumen">{d.resumen}</p>
+      <div class="mono tenue" style="font-size:13px">{d.lugar} · {fechaLarga(d.fecha)}</div>
+      <div class="ficha">
+        <div><div class="k">Periodo</div><div class="v">{d.periodo ?? '—'}</div></div>
+        <div><div class="k">Área</div><div class="v">{d.area ?? '—'}</div></div>
+        <div><div class="k">Fuentes</div><div class="v">{d.fuentes ?? '—'}</div></div>
+      </div>
+    </div>
+  </header>
+  {d.portada && <div class="contenedor" style="padding-top:40px"><div style="height:min(520px,60vw);border:1px solid var(--tinta)"><MapaRelleno imagen={d.portada} alt={d.titulo} /></div></div>}
+  <article class="prosa"><Content /></article>
+</Base>

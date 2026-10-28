@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Galeria from '../components/Galeria.astro';
+import { fotos } from '../lib';
+const lista = await fotos();
+---
+<Base titulo="Fotografía" seccion="fotografia">
+  <section class="seccion oscura" style="min-height:70vh">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h1 class="titulo-pagina"><span class="num mono" style="font-weight:400;font-size:16px;color:var(--acento-claro);margin-right:12px">02</span>Fotografía</h1></div>
+      <p style="margin:0;max-width:640px;color:#C9D3CE">Paisajes, ríos y especies registradas en campo.</p>
+      <Galeria fotos={lista} />
+    </div>
+  </section>
+</Base>

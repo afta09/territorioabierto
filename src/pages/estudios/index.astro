@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import TarjetaEstudio from '../../components/TarjetaEstudio.astro';
+import { estudios } from '../../lib';
+const lista = await estudios();
+---
+<Base titulo="Estudios" seccion="estudios">
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h1 class="titulo-pagina"><span class="num mono" style="font-weight:400;font-size:16px;color:var(--acento);margin-right:12px">01</span>Estudios</h1></div>
+      <p class="tenue" style="margin:0;max-width:640px">Análisis de cuencas, coberturas y biodiversidad con información geográfica y datos abiertos.</p>
+      {lista.length ? <div class="rejilla">{lista.map((e) => <TarjetaEstudio estudio={e} />)}</div> : <p class="vacio">Aún no hay estudios publicados.</p>}
+    </div>
+  </section>
+</Base>

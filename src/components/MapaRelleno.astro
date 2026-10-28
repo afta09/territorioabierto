@@ -1,0 +1,20 @@
+---
+// Mapa esquemático que se muestra cuando un estudio no tiene imagen de portada.
+interface Props { imagen?: string; alt?: string; etiqueta?: string }
+import { url } from '../config';
+const { imagen, alt = '', etiqueta = '[MAPA]' } = Astro.props;
+---
+<div class="mapa-relleno">
+  {imagen ? (
+    <img src={url(imagen)} alt={alt} loading="lazy" />
+  ) : (
+    <svg viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="600" height="380" fill="#DCE4DC"></rect>
+      <g fill="#9DB59E" fill-opacity="0.6"><path d="M40 40h120v80H40zM200 160h90v70h-90zM380 60h140v90H380zM90 250h110v90H90zM420 240h120v100H420z"></path></g>
+      <g fill="#C9A27A" fill-opacity="0.7"><path d="M160 60h60v50h-60zM300 200h70v50h-70zM330 300h60v40h-60z"></path></g>
+      <path d="M300 0c-20 60 40 90 10 150s-70 80-30 140 20 70 30 90" fill="none" stroke="#1D5B79" stroke-width="5"></path>
+      <g stroke="#12241F" stroke-opacity="0.25"><path d="M0 95h600M0 190h600M0 285h600M150 0v380M300 0v380M450 0v380"></path></g>
+          </svg>
+    <span class="mapa-etiqueta">{etiqueta}</span><span class="mapa-norte">N ↑</span>
+  )}
+</div>

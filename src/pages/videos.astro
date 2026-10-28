@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import ListaVideos from '../components/ListaVideos.astro';
+import { videos } from '../lib';
+import { SITIO } from '../config';
+const lista = await videos();
+---
+<Base titulo="Videos" seccion="videos">
+  <section class="seccion" style="min-height:70vh">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h1 class="titulo-pagina"><span class="num mono" style="font-weight:400;font-size:16px;color:var(--acento);margin-right:12px">03</span>Videos</h1>
+        {SITIO.redes.youtube && <a class="ver-mas" href={SITIO.redes.youtube} target="_blank" rel="noopener">Canal de YouTube ↗</a>}
+      </div>
+      <p class="tenue" style="margin:0;max-width:640px">Videos originales y piezas creadas con inteligencia artificial sobre historia, lugares y naturaleza.</p>
+      <ListaVideos videos={lista} />
+    </div>
+  </section>
+</Base>

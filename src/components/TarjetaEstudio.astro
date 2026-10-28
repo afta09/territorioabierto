@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import MapaRelleno from './MapaRelleno.astro';
+import { url } from '../config';
+interface Props { estudio: CollectionEntry<'estudios'> }
+const { estudio } = Astro.props;
+const d = estudio.data;
+---
+<a href={url(`/estudios/${estudio.id}/`)} class="tarjeta">
+  <MapaRelleno imagen={d.portada} alt={d.titulo} />
+  <div class="cuerpo">
+    <div class="etiqueta">{d.tema}{d.estado === 'en curso' ? ' · en curso' : ''}</div>
+    <h3>{d.titulo}</h3>
+    <div class="mono tenue" style="font-size:12px">{d.lugar} · {d.fecha.getFullYear()}</div>
+  </div>
+</a>

@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../config';
+---
+<Base titulo="Página no encontrada">
+  <section class="seccion"><div class="contenedor" style="min-height:50vh;justify-content:center">
+    <div class="etiqueta">Error 404 · fuera del mapa</div>
+    <h1 class="titulo-pagina">Esta página no está en el mapa.</h1>
+    <a class="boton lleno" style="align-self:flex-start" href={url('/')}>Volver al inicio →</a>
+  </div></section>
+</Base>

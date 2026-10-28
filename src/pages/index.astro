@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import MapaRelleno from '../components/MapaRelleno.astro';
+import TarjetaEstudio from '../components/TarjetaEstudio.astro';
+import Galeria from '../components/Galeria.astro';
+import ListaVideos from '../components/ListaVideos.astro';
+import { SITIO, url } from '../config';
+import { estudios, fotos, videos } from '../lib';
+
+const todos = await estudios();
+const destacado = todos.find((e) => e.data.destacado) ?? todos[0];
+const otros = todos.filter((e) => e !== destacado).slice(0, 3);
+const ultimasFotos = (await fotos()).slice(0, 4);
+const ultimosVideos = (await videos()).slice(0, 2);
+---
+<Base>
+  <section class="portada">
+    <svg class="fondo" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#12241F" stroke-opacity="0.16">
+        <path d="M760 280c40-120 220-170 330-110s170 170 90 240-260 90-340 40-110-80-80-170z"></path>
+        <path d="M800 285c30-90 180-130 270-85s130 130 70 185-200 70-265 30-95-60-75-130z"></path>
+        <path d="M840 290c25-65 140-95 210-62s100 95 55 135-150 50-200 22-75-45-65-95z"></path>
+        <path d="M880 295c18-42 100-62 150-40s70 62 38 88-105 32-140 14-55-30-48-62z"></path>
+        <path d="M920 298c12-22 60-32 90-20s40 34 20 48-60 18-82 8-34-18-28-36z"></path>
+        <path d="M-40 520c200-60 360 10 520-30s300-130 520-80 340 40 480 0"></path>
+      </g>
+      <path d="M-20 410c120-30 180 40 300 20s200-110 320-90 160 120 280 110 220-90 300-60 200 40 300 10" fill="none" stroke="#1D5B79" stroke-width="2.5" stroke-opacity="0.55"></path>
+      <g stroke="#12241F" stroke-opacity="0.12"><path d="M0 140h1440M0 280h1440M0 420h1440M360 0v560M720 0v560M1080 0v560"></path></g>
+    </svg>
+    <div class="contenedor">
+      <div class="mono tenue" style="font-size:13px;letter-spacing:.06em">{SITIO.coordenadas}</div>
+      <h1>Leer el territorio<br />con mapas, imágenes<br />y datos abiertos.</h1>
+      <p>{SITIO.presentacion}</p>
+      <div class="acciones">
+        <a class="boton lleno" href={url('/estudios/')}>Ver estudios →</a>
+        <a class="boton" href={url('/fotografia/')}>Explorar fotografía</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2><span class="num">01</span>Estudios</h2>
+        <a class="ver-mas" href={url('/estudios/')}>Todos los estudios →</a>
+      </div>
+      {destacado ? (
+        <article class="destacado">
+          <MapaRelleno imagen={destacado.data.portada} alt={destacado.data.titulo} etiqueta="[MAPA DEL ESTUDIO]" />
+          <div class="texto">
+            <div class="etiqueta">Estudio destacado{destacado.data.estado === 'en curso' ? ' · en curso' : ''}</div>
+            <h3>{destacado.data.titulo}</h3>
+            <p>{destacado.data.resumen}</p>
+            <div class="ficha">
+              <div><div class="k">Periodo</div><div class="v">{destacado.data.periodo ?? '—'}</div></div>
+              <div><div class="k">Área</div><div class="v">{destacado.data.area ?? '—'}</div></div>
+              <div><div class="k">Fuentes</div><div class="v">{destacado.data.fuentes ?? '—'}</div></div>
+            </div>
+            <a class="boton lleno" style="align-self:flex-start" href={url(`/estudios/${destacado.id}/`)}>Leer estudio →</a>
+          </div>
+        </article>
+      ) : <p class="vacio">Aún no hay estudios publicados.</p>}
+      {otros.length > 0 && (
+        <div class="rejilla">{otros.map((e) => <TarjetaEstudio estudio={e} />)}</div>
+      )}
+    </div>
+  </section>
+
+  <section class="seccion oscura">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2><span class="num">02</span>Fotografía</h2>
+        <a class="ver-mas" href={url('/fotografia/')}>Ver galería →</a>
+      </div>
+      <Galeria fotos={ultimasFotos} />
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2><span class="num">03</span>Videos</h2>
+        <a class="ver-mas" href={url('/videos/')}>Todos los videos →</a>
+      </div>
+      <ListaVideos videos={ultimosVideos} />
+    </div>
+  </section>
+</Base>

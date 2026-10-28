@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { SITIO, url } from '../config';
+
+interface Props { titulo?: string; descripcion?: string; seccion?: 'estudios' | 'fotografia' | 'videos' }
+const { titulo, descripcion = SITIO.descripcion, seccion } = Astro.props;
+const tituloCompleto = titulo ? `${titulo} · ${SITIO.nombre}` : SITIO.nombre;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const enlaces = [
+  { id: 'estudios', num: '01', texto: 'Estudios', href: url('/estudios/') },
+  { id: 'fotografia', num: '02', texto: 'Fotografía', href: url('/fotografia/') },
+  { id: 'videos', num: '03', texto: 'Videos', href: url('/videos/') },
+];
+const redes = Object.entries(SITIO.redes).filter(([, v]) => v);
+const nombresRedes: Record<string, string> = { youtube: 'YouTube', instagram: 'Instagram' };
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="contenedor">
+        <a class="marca" href={url('/')}><Logo /><span>{SITIO.nombre}</span></a>
+        <nav class="nav" aria-label="Principal">
+          {enlaces.map((e) => (
+            <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}>{e.num} {e.texto}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="pie">
+      <div class="contenedor">
+        <span>© {new Date().getFullYear()} {SITIO.nombre} · {SITIO.autor}</span>
+        {redes.length > 0 && (
+          <nav aria-label="Redes">
+            {redes.map(([k, v]) => <a href={v} target="_blank" rel="noopener">{nombresRedes[k] ?? k} ↗</a>)}
+          </nav>
+        )}
+      </div>
+    </footer>
+  </body>
+</html>

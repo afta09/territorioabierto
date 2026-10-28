@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../config';
+interface Props { fotos: CollectionEntry<'fotos'>[] }
+const { fotos } = Astro.props;
+---
+{fotos.length === 0 ? (
+  <p class="vacio">Aún no hay fotografías publicadas.</p>
+) : (
+  <div class="galeria">
+    {fotos.map((f) => (
+      <figure>
+        <div class="marco">
+          {f.data.imagen ? <img src={url(f.data.imagen)} alt={f.data.titulo} loading="lazy" /> : <span>[FOTO]</span>}
+        </div>
+        <figcaption>
+          <strong>{f.data.titulo}</strong><br />
+          {f.data.lugar}{f.data.coordenadas && <><br />{f.data.coordenadas}</>}
+          {f.data.nota && <><br />{f.data.nota}</>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+)}
