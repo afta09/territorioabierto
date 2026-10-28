@@ -141,3 +141,18 @@ a:hover { color: var(--acento); }
 .prosa figcaption { margin-top: 14px; font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--tinta-3); }
 .prosa figcaption strong { color: var(--tinta); font-weight: 500; }
 .prosa .figura svg g:hover path { opacity: .85; }
+
+/* Barrido comparativo (antes / después) */
+.barrido { --pos: 50%; position: relative; overflow: hidden; border: var(--linea); background: var(--campo); user-select: none; touch-action: pan-y; }
+.barrido img, .prosa .figura .barrido img { display: block; width: 100%; height: auto; max-height: none; margin: 0; border: 0; pointer-events: none; }
+.barrido .barrido-antes { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.barrido .barrido-antes img { width: 100%; height: 100%; object-fit: cover; }
+.barrido .barrido-linea { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(18,36,31,.4); pointer-events: none; }
+.barrido .barrido-perilla { position: absolute; top: 50%; left: var(--pos); width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: #fff; border: 2px solid var(--tinta); display: flex; align-items: center; justify-content: center; pointer-events: none; font-family: var(--mono); font-size: 16px; color: var(--tinta); }
+.barrido .barrido-etq { position: absolute; top: 12px; padding: 4px 10px; background: rgba(18,36,31,.85); color: #fff; font-family: var(--mono); font-size: 13px; pointer-events: none; }
+.barrido .barrido-etq.izq { left: 12px; }
+.barrido .barrido-etq.der { right: 12px; }
+.barrido input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.barrido input[type="range"]:focus-visible + .barrido-foco { outline: 3px solid var(--acento); outline-offset: -3px; }
+.barrido .barrido-foco { position: absolute; inset: 0; pointer-events: none; }
+.barrido-ayuda { margin: 10px 0 0; font-family: var(--mono); font-size: 13px; color: var(--tinta-3); }

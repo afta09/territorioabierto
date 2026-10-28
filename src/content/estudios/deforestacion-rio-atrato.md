@@ -1,12 +1,12 @@
 ---
 titulo: Deforestación en la cuenca del río Atrato
-resumen: El río Atrato tiene derechos propios desde 2016, pero el bosque de su cuenca sigue cayendo. Este artículo reúne las cifras oficiales y científicas de 2001 a 2025 sobre deforestación y minería, y lo que muestran sobre sus causas.
+resumen: El río Atrato tiene derechos propios desde 2016, pero el bosque de su cuenca sigue cayendo. Este estudio reúne las cifras oficiales de 2001 a 2025 y un análisis satelital propio que compara el Atrato medio en 1999-2000 y 2023-2025.
 fecha: 2026-10-28
 tema: Coberturas
 lugar: Cuenca del río Atrato · Chocó y Antioquia
-periodo: 2001–2025
+periodo: 1999–2025
 area: ≈ 40.000 km²
-fuentes: IDEAM, UNODC, Defensoría
+fuentes: IDEAM, Landsat, Hansen GFC
 portada: /estudios/atrato/mapa-ubicacion.svg
 estado: publicado
 destacado: true
@@ -22,7 +22,7 @@ La pregunta de este artículo es sencilla: **¿qué ha pasado con el bosque de l
 
 <figure class="figura">
 <img src="/estudios/atrato/mapa-ubicacion.svg" alt="Mapa de ubicación del río Atrato entre el Chocó y Antioquia, con Quibdó, Río Quito, Bojayá, Riosucio y Turbo" />
-<figcaption><strong>Figura 1.</strong> Ubicación del río Atrato y de los municipios citados en el texto. Esquema elaborado con datos de Natural Earth; no representa el límite oficial de la cuenca.</figcaption>
+<figcaption><strong>Figura 1.</strong> Ubicación del río Atrato y de los municipios citados en el texto. El recuadro naranja es el área del análisis satelital propio. Esquema elaborado con datos de Natural Earth; no representa el límite oficial de la cuenca.</figcaption>
 </figure>
 
 ## Cuánto bosque se ha perdido
@@ -71,20 +71,56 @@ Según la Defensoría, el área degradada por minería ilegal pasó de **48.000 
 
 El monitoreo de Naciones Unidas y el Gobierno nacional (EVOA 2025) registró **41.493 hectáreas con explotación ilícita de oro de aluvión en el Chocó**. En todo el país, el área con evidencia de esta minería es de 118.410 hectáreas.
 
+## Desde el satélite: el Atrato medio en 26 años
+
+Para ver el cambio con nuestros propios ojos, analizamos con **Google Earth Engine** el corredor **Quibdó – Bagadó – Istmina – Condoto**, donde se concentra la minería con dragas y retroexcavadoras sobre el Atrato y sus afluentes. El área de análisis es un rectángulo de unos 6.250 km² (recuadro naranja en la Figura 1).
+
+<!-- BARRIDO: se activa cuando estén las imágenes landsat-1999-2000.jpg y landsat-2023-2025.jpg
+<figure class="figura">
+<p class="figura-titulo">Arrastra la línea para comparar 1999-2000 con 2023-2025</p>
+<div class="barrido" data-barrido>
+<img src="/estudios/atrato/landsat-2023-2025.jpg" alt="Imagen satelital Landsat 8 y 9 en color real del corredor Quibdó, Bagadó, Istmina y Condoto, periodo 2023 a 2025" />
+<div class="barrido-antes"><img src="/estudios/atrato/landsat-1999-2000.jpg" alt="Imagen satelital Landsat 5 en color real del mismo corredor, periodo 1998 a 2001" /></div>
+<div class="barrido-linea"></div>
+<div class="barrido-perilla" aria-hidden="true">⇔</div>
+<span class="barrido-etq izq">1999–2000</span>
+<span class="barrido-etq der">2023–2025</span>
+<input type="range" min="0" max="100" value="50" step="1" aria-label="Mover la comparación entre 1999-2000 y 2023-2025" />
+<div class="barrido-foco"></div>
+</div>
+<p class="barrido-ayuda">A la izquierda de la línea, 1999-2000; a la derecha, 2023-2025. También puedes usar las flechas del teclado.</p>
+<figcaption><strong>Figura 4.</strong> Compuestos de mediana en color real. Izquierda: Landsat 5 TM, 1998-2001. Derecha: Landsat 8 y 9 OLI, 2023-2025. Nubes enmascaradas con la banda QA_PIXEL. Elaboración propia en Google Earth Engine.</figcaption>
+</figure>
+FIN BARRIDO -->
+
+**Cómo se hizo.** El Chocó es una de las regiones más nubladas del planeta, así que cada periodo se construyó con la **mediana de todas las imágenes Landsat sin nubes** de varios años: 1998 a 2001 para el periodo histórico y 2023 a 2025 para el reciente. Con esos compuestos se calcularon tres indicadores:
+
+| Indicador | Resultado | Qué significa |
+|---|---|---|
+| Pérdida de bosque 2000–2023 (Hansen GFC v1.11) | **13.309 ha** (≈ 2,1 % del área) | La pérdida sigue casi exactamente el cauce del río y sus afluentes: la huella de la minería aluvial, no de tala dispersa. |
+| Cambio medio de vegetación (NDVI) | **+0,127** | A escala de todo el corredor domina el bosque que se mantiene o se regenera; la pérdida, concentrada en la franja del río, se diluye en el promedio. |
+| Cambio medio de turbidez del río (NDTI) | **+0,024** | El agua del río es hoy más turbia que en 1999-2000, coherente con el aporte de sedimentos de las dragas. |
+
+> El daño no está repartido por el bosque: está pegado al río. Por eso el promedio del corredor parece "verde" mientras los cauces cambian de color.
+
 ## Lo que muestran los datos
 
 1. **La sentencia no ha frenado la presión sobre el bosque.** Nueve años después, la minería ilegal ocupa más del doble del área y la deforestación en el Pacífico vuelve a crecer.
 2. **El Atrato no es un solo problema.** Arriba domina la minería; abajo, la ampliación de potreros y cultivos y la tala. Cada tramo necesita respuestas distintas.
-3. **El río es la vía.** En ambos casos la deforestación avanza desde los cauces, que son el acceso al bosque.
+3. **El río es la vía y el más afectado.** La deforestación avanza desde los cauces y, en el Atrato medio, la pérdida de bosque y el aumento de turbidez se concentran sobre el propio río.
 4. **Faltan datos a escala de cuenca.** Las cifras oficiales se publican por departamento o región, lo que dificulta seguir el cumplimiento de la sentencia en el territorio que protege.
 
 ## Nota metodológica
 
-Este es un artículo de síntesis. Las cifras provienen de fuentes con métodos distintos: el IDEAM mide la pérdida de bosque natural, Global Forest Change mide la pérdida de cobertura arbórea y la Defensoría y UNODC miden áreas afectadas por minería. Por eso **no deben sumarse ni compararse directamente entre sí**. El IDEAM publica la cifra anual cada mes de julio, así que los datos de 2026 se conocerán a mediados de 2027.
+Este estudio combina cifras publicadas y un análisis propio. Las fuentes usan métodos distintos: el IDEAM mide la pérdida de bosque natural, Global Forest Change mide la pérdida de cobertura arbórea y la Defensoría y UNODC miden áreas afectadas por minería. Por eso **no deben sumarse ni compararse directamente entre sí**. El IDEAM publica la cifra anual cada mes de julio, así que los datos de 2026 se conocerán a mediados de 2027.
 
-**Próxima versión:** un análisis propio con imágenes satelitales para toda la cuenca y por subcuenca, de 2001 a 2025.
+En el análisis propio, el **NDTI es un indicador indirecto** de turbidez basado en la reflectancia del agua, no una medición de sedimentos en campo; sirve para comparar periodos, no como valor calibrado. Los compuestos de varios años suavizan las variaciones dentro de cada periodo, y la serie de Hansen usada llega hasta 2023.
+
+**Próxima versión:** extender el análisis satelital a toda la cuenca y por subcuenca, con la versión más reciente de Global Forest Change.
 
 ## Fuentes
+
+- Análisis propio en Google Earth Engine (2026): compuestos Landsat 5 TM y Landsat 8/9 OLI Collection 2 Nivel 2 (USGS) y Hansen, M. C. et al. (2013), *High-Resolution Global Maps of 21st-Century Forest Cover Change*, Science 342, versión GFC 2023 v1.11. [doi:10.1126/science.1244693](https://doi.org/10.1126/science.1244693)
 
 - Anaya, J. A., Gutiérrez-Vélez, V. H., Pacheco-Pascagaza, A. M., Palomino-Ángel, S., Han, N. y Balzter, H. (2020). Drivers of Forest Loss in a Megadiverse Hotspot on the Pacific Coast of Colombia. *Remote Sensing*, 12(8), 1235. [doi:10.3390/rs12081235](https://doi.org/10.3390/rs12081235)
 - Corte Constitucional de Colombia (2016). [Sentencia T-622 de 2016](https://www.corteconstitucional.gov.co/relatoria/2016/t-622-16.htm).

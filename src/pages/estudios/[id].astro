@@ -28,3 +28,14 @@ const { Content } = await render(estudio);
   </header>
   <article class="prosa"><Content /></article>
 </Base>
+
+<script>
+  // Barrido comparativo: mueve la línea divisoria según el control deslizante.
+  document.querySelectorAll<HTMLElement>('[data-barrido]').forEach((caja) => {
+    const control = caja.querySelector<HTMLInputElement>('input[type="range"]');
+    if (!control) return;
+    const actualizar = () => caja.style.setProperty('--pos', `${control.value}%`);
+    control.addEventListener('input', actualizar);
+    actualizar();
+  });
+</script>
