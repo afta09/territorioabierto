@@ -102,6 +102,80 @@ Para ver el cambio con nuestros propios ojos, analizamos con **Google Earth Engi
 
 > El daño no está repartido por el bosque: está pegado al río. Por eso el promedio del corredor parece "verde" mientras los cauces cambian de color.
 
+### Explora las capas
+
+El análisis produjo cuatro capas del mismo corredor. En este comparador puedes elegir cuál ver a cada lado de la línea: por ejemplo, el cambio de vegetación contra la imagen actual, o la pérdida de bosque contra la imagen de 1999-2000.
+
+<figure class="figura">
+<div class="comparador" data-comparador>
+<div class="comparador-controles">
+<label>Izquierda <select data-capa="izq" aria-label="Capa a la izquierda">
+<option value="landsat-1999-2000.jpg" data-corto="1999–2000" data-alt="Imagen Landsat 5 en color real del corredor, 1998 a 2001">Color real 1999-2000</option>
+<option value="landsat-2023-2025.jpg" data-corto="2023–2025" data-alt="Imagen Landsat 8 y 9 en color real del corredor, 2023 a 2025">Color real 2023-2025</option>
+<option value="perdida-bosque-2000-2023.jpg" data-corto="Pérdida 2000–2023" data-alt="Píxeles de pérdida de bosque coloreados por año, 2000 a 2023, sobre la imagen 2023-2025 en gris">Pérdida de bosque 2000-2023</option>
+<option value="cambio-ndvi.jpg" selected data-corto="Cambio NDVI" data-alt="Mapa de cambio de NDVI entre 1999-2000 y 2023-2025: rojo pérdida de vegetación, verde ganancia">Cambio de vegetación (NDVI)</option>
+</select></label>
+<label>Derecha <select data-capa="der" aria-label="Capa a la derecha">
+<option value="landsat-1999-2000.jpg" data-corto="1999–2000" data-alt="Imagen Landsat 5 en color real del corredor, 1998 a 2001">Color real 1999-2000</option>
+<option value="landsat-2023-2025.jpg" selected data-corto="2023–2025" data-alt="Imagen Landsat 8 y 9 en color real del corredor, 2023 a 2025">Color real 2023-2025</option>
+<option value="perdida-bosque-2000-2023.jpg" data-corto="Pérdida 2000–2023" data-alt="Píxeles de pérdida de bosque coloreados por año, 2000 a 2023, sobre la imagen 2023-2025 en gris">Pérdida de bosque 2000-2023</option>
+<option value="cambio-ndvi.jpg" data-corto="Cambio NDVI" data-alt="Mapa de cambio de NDVI entre 1999-2000 y 2023-2025: rojo pérdida de vegetación, verde ganancia">Cambio de vegetación (NDVI)</option>
+</select></label>
+</div>
+<div class="barrido" data-barrido>
+<img data-lado="der" src="/estudios/atrato/landsat-2023-2025.jpg" alt="Imagen Landsat 8 y 9 en color real del corredor, 2023 a 2025" />
+<div class="barrido-antes"><img data-lado="izq" src="/estudios/atrato/cambio-ndvi.jpg" alt="Mapa de cambio de NDVI entre 1999-2000 y 2023-2025: rojo pérdida de vegetación, verde ganancia" /></div>
+<div class="barrido-linea"></div>
+<div class="barrido-perilla" aria-hidden="true">⇔</div>
+<span class="barrido-etq izq" data-etq="izq">Cambio NDVI</span>
+<span class="barrido-etq der" data-etq="der">2023–2025</span>
+<input type="range" min="0" max="100" value="50" step="1" aria-label="Mover la comparación entre las dos capas" />
+<div class="barrido-foco"></div>
+</div>
+<div class="leyendas">
+<div class="leyenda" data-leyenda="perdida-bosque-2000-2023.jpg" hidden>
+<p class="leyenda-titulo">Año de pérdida de bosque</p>
+<div class="leyenda-barra" style="background:linear-gradient(90deg,#FFFF00,#FFA500,#FF0000,#8B0000)"></div>
+<div class="leyenda-marcas"><span>2000</span><span>~2008</span><span>~2016</span><span>2023</span></div>
+</div>
+<div class="leyenda" data-leyenda="cambio-ndvi.jpg">
+<p class="leyenda-titulo">Cambio de NDVI 1999-2000 → 2023-2025</p>
+<div class="leyenda-barra" style="background:linear-gradient(90deg,#d7191c,#ffffbf,#1a9641)"></div>
+<div class="leyenda-marcas"><span>−0,5 pérdida</span><span>0 sin cambio</span><span>+0,5 ganancia</span></div>
+<p class="leyenda-nota"><span class="leyenda-cuadro" style="background:#2b2b2b"></span> sin datos (nubes)</p>
+</div>
+</div>
+</div>
+<figcaption><strong>Figura 5.</strong> Comparador de capas del corredor Quibdó – Bagadó – Istmina – Condoto. Elaboración propia en Google Earth Engine con Landsat (USGS) y Hansen Global Forest Change v1.11 (Universidad de Maryland).</figcaption>
+</figure>
+
+### Dónde y cuándo se perdió el bosque
+
+<figure class="figura">
+<img src="/estudios/atrato/figura-perdida-bosque.jpg" alt="Mapa de pérdida de bosque por año entre 2000 y 2023 en el corredor; los píxeles rojo oscuro, más recientes, se alinean a lo largo de un río en el costado oeste" />
+<figcaption><strong>Figura 6.</strong> Pérdida de bosque por año, 2000-2023 (Hansen Global Forest Change v1.11). Cada píxel coloreado es bosque que desapareció; el color indica el año.</figcaption>
+</figure>
+
+El mapa colorea cada píxel de 30 m según el año en que se perdió el bosque. Tres patrones saltan a la vista:
+
+- **Una columna roja oscura en el costado oeste.** Sigue el valle del río Quito desde el sur de Quibdó, con un ramal hacia el oriente en la mitad del mapa. Los tonos rojo oscuro indican que esta pérdida es **reciente (2016-2023)** y alineada con los cauces: es la firma de la minería con dragas y retroexcavadoras.
+- **Manchas amarillas y naranjas en el sur.** Hacia Istmina y Condoto, que ya drenan al río San Juan, domina la pérdida **más antigua (2000-2010)**. Es una zona con historia minera más larga.
+- **Puntos dispersos en el oriente.** Son claros pequeños y aislados, típicos de la agricultura y la tala de baja escala, no de la minería.
+
+### Cómo cambió la vegetación
+
+<figure class="figura">
+<img src="/estudios/atrato/figura-cambio-ndvi.jpg" alt="Mapa de cambio de NDVI entre 1999-2000 y 2023-2025; una franja roja de pérdida sigue el río en el costado oeste y el resto del corredor aparece en verdes y amarillos" />
+<figcaption><strong>Figura 7.</strong> Cambio de NDVI entre 1999-2000 y 2023-2025. Rojo: pérdida de vegetación; amarillo: sin cambio; verde: ganancia o regeneración. Las zonas blancas no tienen datos por nubes.</figcaption>
+</figure>
+
+El NDVI mide qué tan verde y densa es la vegetación. Al restar el valor de 1999-2000 al de 2023-2025 aparece el cambio:
+
+- **La franja roja coincide con la columna de pérdida de la Figura 6.** En el valle del río Quito la vegetación fue reemplazada por arena, grava y pozos de agua: el suelo quedó desnudo después de la minería.
+- **El resto del corredor se ve verde o amarillo.** El bosque se mantuvo o se recuperó, y eso explica por qué el promedio del corredor sube (+0,127) aunque el daño junto al río sea severo.
+- **El impacto es lineal, no extenso.** La minería aluvial no avanza como un frente de tala: se concentra en los cauces y sus orillas, que son justamente el corazón del río que la Sentencia T-622 protege.
+
+
 ## Lo que muestran los datos
 
 1. **La sentencia no ha frenado la presión sobre el bosque.** Nueve años después, la minería ilegal ocupa más del doble del área y la deforestación en el Pacífico vuelve a crecer.
@@ -113,7 +187,7 @@ Para ver el cambio con nuestros propios ojos, analizamos con **Google Earth Engi
 
 Este estudio combina cifras publicadas y un análisis propio. Las fuentes usan métodos distintos: el IDEAM mide la pérdida de bosque natural, Global Forest Change mide la pérdida de cobertura arbórea y la Defensoría y UNODC miden áreas afectadas por minería. Por eso **no deben sumarse ni compararse directamente entre sí**. El IDEAM publica la cifra anual cada mes de julio, así que los datos de 2026 se conocerán a mediados de 2027.
 
-En el análisis propio, el **NDTI es un indicador indirecto** de turbidez basado en la reflectancia del agua, no una medición de sedimentos en campo; sirve para comparar periodos, no como valor calibrado. Los compuestos de varios años suavizan las variaciones dentro de cada periodo, y la serie de Hansen usada llega hasta 2023.
+En el análisis propio, el **NDTI es un indicador indirecto** de turbidez basado en la reflectancia del agua, no una medición de sedimentos en campo; sirve para comparar periodos, no como valor calibrado. Los compuestos de varios años suavizan las variaciones dentro de cada periodo. Además, el NDVI de 1999-2000 (Landsat 5) y el de 2023-2025 (Landsat 8/9) provienen de sensores distintos, por lo que el cambio medio debe leerse como tendencia y no como valor exacto. La serie de Hansen usada llega hasta 2023.
 
 **Próxima versión:** extender el análisis satelital a toda la cuenca y por subcuenca, con la versión más reciente de Global Forest Change.
 

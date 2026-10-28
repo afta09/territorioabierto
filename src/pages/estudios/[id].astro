@@ -38,4 +38,28 @@ const { Content } = await render(estudio);
     control.addEventListener('input', actualizar);
     actualizar();
   });
+
+  // Comparador de capas: cambia la imagen de cada lado según la lista elegida.
+  document.querySelectorAll<HTMLElement>('[data-comparador]').forEach((comp) => {
+    const leyendas = comp.querySelectorAll<HTMLElement>('[data-leyenda]');
+    const refrescarLeyendas = () => {
+      const elegidas = Array.from(comp.querySelectorAll<HTMLSelectElement>('select[data-capa]')).map((s) => s.value);
+      leyendas.forEach((l) => (l.hidden = !elegidas.includes(l.dataset.leyenda || '')));
+    };
+    comp.querySelectorAll<HTMLSelectElement>('select[data-capa]').forEach((sel) => {
+      const lado = sel.dataset.capa;
+      const img = comp.querySelector<HTMLImageElement>(`img[data-lado="${lado}"]`);
+      const etq = comp.querySelector<HTMLElement>(`[data-etq="${lado}"]`);
+      if (!img) return;
+      const carpeta = img.getAttribute('src')!.replace(/[^/]*$/, '');
+      sel.addEventListener('change', () => {
+        const opcion = sel.selectedOptions[0];
+        img.src = carpeta + sel.value;
+        img.alt = opcion.dataset.alt || opcion.text;
+        if (etq) etq.textContent = opcion.dataset.corto || opcion.text;
+        refrescarLeyendas();
+      });
+    });
+    refrescarLeyendas();
+  });
 </script>
