@@ -132,3 +132,12 @@ a:hover { color: var(--acento); }
 .mapa-etiqueta, .mapa-norte { position: absolute; font-family: var(--mono); font-size: 11px; color: var(--tinta); }
 .mapa-etiqueta { left: 12px; bottom: 10px; }
 .mapa-norte { right: 12px; top: 10px; }
+
+/* Figuras en estudios */
+.prosa .figura { margin: 2.2em 0; padding: 20px; border: var(--linea); background: var(--papel-2); }
+.prosa .figura-angosta svg { max-width: 480px; margin: 0 auto; }
+.prosa .figura img { border: 0; margin: 0 auto; max-height: 820px; width: auto; }
+.prosa .figura-titulo { margin: 0 0 14px; font-family: var(--cond); font-weight: 600; font-size: 20px; line-height: 1.2; }
+.prosa figcaption { margin-top: 14px; font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--tinta-3); }
+.prosa figcaption strong { color: var(--tinta); font-weight: 500; }
+.prosa .figura svg g:hover path { opacity: .85; }

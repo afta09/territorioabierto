@@ -1,7 +1,6 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import MapaRelleno from '../../components/MapaRelleno.astro';
 import { estudios, fechaLarga } from '../../lib';
 import { url } from '../../config';
 
@@ -27,6 +26,5 @@ const { Content } = await render(estudio);
       </div>
     </div>
   </header>
-  {d.portada && <div class="contenedor" style="padding-top:40px"><div style="height:min(520px,60vw);border:1px solid var(--tinta)"><MapaRelleno imagen={d.portada} alt={d.titulo} /></div></div>}
   <article class="prosa"><Content /></article>
 </Base>

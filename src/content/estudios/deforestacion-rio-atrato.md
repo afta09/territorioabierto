@@ -1,36 +1,95 @@
 ---
 titulo: Deforestación en la cuenca del río Atrato
-resumen: "[Resumen de 2–3 líneas: pregunta del estudio, zona, periodo analizado y fuentes de datos.]"
-fecha: 2026-10-27
+resumen: El río Atrato tiene derechos propios desde 2016, pero el bosque de su cuenca sigue cayendo. Este artículo reúne las cifras oficiales y científicas de 2001 a 2025 sobre deforestación y minería, y lo que muestran sobre sus causas.
+fecha: 2026-10-28
 tema: Coberturas
-lugar: Chocó, Colombia
-periodo: "[AAAA–AAAA]"
-area: "[— km²]"
-fuentes: "[Datos]"
-estado: en curso
+lugar: Cuenca del río Atrato · Chocó y Antioquia
+periodo: 2001–2025
+area: ≈ 40.000 km²
+fuentes: IDEAM, UNODC, Defensoría
+portada: /estudios/atrato/mapa-ubicacion.svg
+estado: publicado
 destacado: true
 ---
 
-## Introducción
+## Un río con derechos
 
-[Contexto de la cuenca del río Atrato y por qué es importante estudiar su deforestación.]
+El Atrato recorre unos **750 kilómetros**, de los cuales 500 son navegables, y drena una cuenca de cerca de **40.000 km²** entre el Chocó y el occidente de Antioquia. Así lo describe la Corte Constitucional, que lo considera el río más caudaloso del país.
 
-## Área de estudio
+El 10 de noviembre de 2016, la Corte, mediante la **Sentencia T-622**, reconoció al río Atrato, su cuenca y sus afluentes como **sujeto de derechos**. Ordenó al Estado y a las comunidades étnicas protegerlo, conservarlo y restaurarlo. Desde entonces el río tiene "guardianes": un cuerpo colegiado de 14 representantes de las comunidades y el Ministerio de Ambiente, designado como su representante legal por el Decreto 1148 de 2017.
 
-[Ubicación, extensión y características de la zona.]
+La pregunta de este artículo es sencilla: **¿qué ha pasado con el bosque de la cuenca antes y después de esa sentencia?**
 
-## Metodología
+<figure class="figura">
+<img src="/estudios/atrato/mapa-ubicacion.svg" alt="Mapa de ubicación del río Atrato entre el Chocó y Antioquia, con Quibdó, Río Quito, Bojayá, Riosucio y Turbo" />
+<figcaption><strong>Figura 1.</strong> Ubicación del río Atrato y de los municipios citados en el texto. Esquema elaborado con datos de Natural Earth; no representa el límite oficial de la cuenca.</figcaption>
+</figure>
 
-[Fuentes de datos, herramientas (QGIS, Python, Google Earth Engine…) y pasos del análisis.]
+## Cuánto bosque se ha perdido
 
-## Resultados
+No existe una serie oficial publicada de deforestación *solo para la cuenca* del Atrato. Por eso, este artículo combina tres escalas de información:
 
-[Mapas, tablas y hallazgos principales.]
+**El departamento del Chocó (2001–2018).** Un estudio con imágenes satelitales Landsat (Global Forest Change) calculó que el Chocó perdió **2.324 km² de bosque** entre 2001 y 2018, es decir, unas **232.400 hectáreas**. Los años más críticos fueron **2016 y 2017** (Anaya et al., 2020).
 
-## Conclusiones
+**Dos municipios de la cuenca (2015–2020).** Un análisis detallado de dos municipios atravesados por el Atrato encontró dinámicas muy distintas (Restrepo et al., 2023):
 
-[Qué significan los resultados.]
+| Municipio | Pérdida de bosque 2015–2020 | Año más crítico | Motor principal |
+|---|---|---|---|
+| Riosucio (Bajo Atrato) | 28.573 ha | 2016: 11.301 ha | Frontera agrícola y madera |
+| Río Quito (Alto Atrato) | 516 ha | 2017: 159 ha | Minería de oro de aluvión |
 
-## Referencias
+**Las cifras oficiales más recientes (IDEAM).** En 2025, el Chocó registró **6.945 hectáreas deforestadas**, un **9,6 % más** que en 2024 (6.338 ha). En toda la región Pacífico, la deforestación creció **22 %** en 2025, el mayor aumento regional del país. El IDEAM ya había advertido una "aceleración fuerte" en el norte del Chocó, donde está el Bajo Atrato.
 
-- [Fuente 1]
+<figure class="figura">
+<p class="figura-titulo">Deforestación en la región Pacífico (hectáreas por año)</p>
+<svg viewBox="0 0 640 260" role="img" aria-label="Deforestación en la región Pacífico, 2022 a 2025, en hectáreas" style="width:100%;height:auto;display:block;font-family:'IBM Plex Mono',monospace"><line x1="0" y1="224" x2="640" y2="224" stroke="#12241F" stroke-width="1"/><g><title>2022: 13.289 ha</title><path d="M8.0,224 V40.0 Q8.0,36.0 12.0,36.0 H142.0 Q146.0,36.0 146.0,40.0 V224 Z" fill="#1D5B79"/><text x="77.0" y="26.0" text-anchor="middle" font-size="15" fill="#12241F">13.289</text><text x="77.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2022</text></g><g><title>2023: 7.385 ha</title><path d="M170.0,224 V123.5 Q170.0,119.5 174.0,119.5 H304.0 Q308.0,119.5 308.0,123.5 V224 Z" fill="#1D5B79"/><text x="239.0" y="109.5" text-anchor="middle" font-size="15" fill="#12241F">7.385</text><text x="239.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2023</text></g><g><title>2024: 7.905 ha</title><path d="M332.0,224 V116.2 Q332.0,112.2 336.0,112.2 H466.0 Q470.0,112.2 470.0,116.2 V224 Z" fill="#1D5B79"/><text x="401.0" y="102.2" text-anchor="middle" font-size="15" fill="#12241F">7.905</text><text x="401.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2024</text></g><g><title>2025: 9.634 ha</title><path d="M494.0,224 V91.7 Q494.0,87.7 498.0,87.7 H628.0 Q632.0,87.7 632.0,91.7 V224 Z" fill="#1D5B79"/><text x="563.0" y="77.7" text-anchor="middle" font-size="15" fill="#12241F">9.634</text><text x="563.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2025</text></g></svg>
+<figcaption><strong>Figura 2.</strong> Superficie deforestada en la región natural Pacífico según el Sistema de Monitoreo de Bosques y Carbono del IDEAM (informes con cifras 2023 a 2025).</figcaption>
+</figure>
+
+> Tras una caída fuerte en 2023, la deforestación en el Pacífico volvió a subir dos años seguidos.
+
+## Dos motores, dos paisajes
+
+Las causas no son las mismas a lo largo del río.
+
+- **En el Bajo Atrato** (Riosucio, Carmen del Darién), la pérdida de bosque se asocia a la **expansión de la frontera agrícola y ganadera** y a la **extracción de madera**. Los nuevos claros aparecen junto a áreas ya intervenidas y cerca de ríos y ciénagas, que son la vía de acceso.
+- **En el Alto Atrato** (Río Quito, Quibdó, Lloró), el motor dominante es la **minería de oro de aluvión**. La deforestación sigue el curso del río Quito y se concentra cerca de los frentes mineros.
+
+A escala departamental, los cultivos ilícitos y la minería aluvial explicaron cerca del **60 %** de la pérdida de bosque del Chocó entre 2001 y 2018 (Anaya et al., 2020).
+
+## La minería: degradar sin talar
+
+La minería de oro con dragas y retroexcavadoras no solo tala el bosque. También remueve el suelo, desvía cauces y contamina el agua con mercurio. Por eso su huella se mide como **área degradada**, que va más allá de la deforestación.
+
+<figure class="figura figura-angosta">
+<p class="figura-titulo">Área degradada por minería ilegal en la cuenca (hectáreas)</p>
+<svg viewBox="0 0 480 260" role="img" aria-label="Hectáreas degradadas por minería ilegal en la cuenca del Atrato, 2016 y 2023" style="width:100%;height:auto;display:block;font-family:'IBM Plex Mono',monospace"><line x1="0" y1="224" x2="480" y2="224" stroke="#12241F" stroke-width="1"/><g><title>2016: 48.000 ha</title><path d="M8.0,224 V145.1 Q8.0,141.1 12.0,141.1 H224.0 Q228.0,141.1 228.0,145.1 V224 Z" fill="#B4441A"/><text x="118.0" y="131.1" text-anchor="middle" font-size="15" fill="#12241F">48.000</text><text x="118.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2016</text></g><g><title>2023: 108.800 ha</title><path d="M252.0,224 V40.0 Q252.0,36.0 256.0,36.0 H468.0 Q472.0,36.0 472.0,40.0 V224 Z" fill="#B4441A"/><text x="362.0" y="26.0" text-anchor="middle" font-size="15" fill="#12241F">108.800</text><text x="362.0" y="248" text-anchor="middle" font-size="14" fill="#3D524B">2023</text></g></svg>
+<figcaption><strong>Figura 3.</strong> Hectáreas degradadas por minería ilegal en la cuenca del Atrato según la Defensoría del Pueblo (XV informe de seguimiento a la Sentencia T-622, septiembre de 2025).</figcaption>
+</figure>
+
+Según la Defensoría, el área degradada por minería ilegal pasó de **48.000 hectáreas en 2016**, el año de la sentencia, a **más de 108.800 en 2023**: más del doble. La **subcuenca del río Quito tiene afectado el 64 % de su área**, y los municipios afectados pasaron de 10 a 13.
+
+El monitoreo de Naciones Unidas y el Gobierno nacional (EVOA 2025) registró **41.493 hectáreas con explotación ilícita de oro de aluvión en el Chocó**. En todo el país, el área con evidencia de esta minería es de 118.410 hectáreas.
+
+## Lo que muestran los datos
+
+1. **La sentencia no ha frenado la presión sobre el bosque.** Nueve años después, la minería ilegal ocupa más del doble del área y la deforestación en el Pacífico vuelve a crecer.
+2. **El Atrato no es un solo problema.** Arriba domina la minería; abajo, la ampliación de potreros y cultivos y la tala. Cada tramo necesita respuestas distintas.
+3. **El río es la vía.** En ambos casos la deforestación avanza desde los cauces, que son el acceso al bosque.
+4. **Faltan datos a escala de cuenca.** Las cifras oficiales se publican por departamento o región, lo que dificulta seguir el cumplimiento de la sentencia en el territorio que protege.
+
+## Nota metodológica
+
+Este es un artículo de síntesis. Las cifras provienen de fuentes con métodos distintos: el IDEAM mide la pérdida de bosque natural, Global Forest Change mide la pérdida de cobertura arbórea y la Defensoría y UNODC miden áreas afectadas por minería. Por eso **no deben sumarse ni compararse directamente entre sí**. El IDEAM publica la cifra anual cada mes de julio, así que los datos de 2026 se conocerán a mediados de 2027.
+
+**Próxima versión:** un análisis propio con imágenes satelitales para toda la cuenca y por subcuenca, de 2001 a 2025.
+
+## Fuentes
+
+- Anaya, J. A., Gutiérrez-Vélez, V. H., Pacheco-Pascagaza, A. M., Palomino-Ángel, S., Han, N. y Balzter, H. (2020). Drivers of Forest Loss in a Megadiverse Hotspot on the Pacific Coast of Colombia. *Remote Sensing*, 12(8), 1235. [doi:10.3390/rs12081235](https://doi.org/10.3390/rs12081235)
+- Corte Constitucional de Colombia (2016). [Sentencia T-622 de 2016](https://www.corteconstitucional.gov.co/relatoria/2016/t-622-16.htm).
+- Defensoría del Pueblo (2025). [Defensoría alerta sobre el agravamiento de la crisis ambiental en el río Atrato tras nueve años de la Sentencia T-622](https://www.defensoria.gov.co/en/-/defensor%C3%ADa-del-pueblo-alerta-sobre-el-agravamiento-de-la-crisis-ambiental-en-el-r%C3%ADo-atrato-tras-nueve-a%C3%B1os-de-la-sentencia-t-622).
+- IDEAM (2024, 2025 y 2026). [Informes anuales del monitoreo de bosque y la deforestación](https://www.ideam.gov.co/sala-de-prensa/informes/Informe-anual-del-monitoreo-de-bosque-y-la-deforestacion) (cifras 2023, 2024 y 2025).
+- Ministerio de Ambiente (2021). [Primer informe de avance de cumplimiento de la Sentencia T-622](https://atrato.minambiente.gov.co/wp-content/uploads/2021/11/Primer-Informe-de-avance-de-cumplimiento-de-la-sentencia-T-622.pdf).
+- Ministerio de Minas y Energía y UNODC (2026). [Colombia registró 118.410 hectáreas con explotación de oro de aluvión en 2025](https://minenergia.gov.co/es/sala-de-prensa/noticias-index/colombia-registro-118410-hectareas-con-explotacion-de-oro-de-aluvion-en-2025-segun-el-informe-anual-del-gobierno-nacional-y-unodc/).
+- Restrepo, J., Hoyos, N. y Restrepo, J. (2023). Dinámicas espacio-temporales de la deforestación en los municipios de Riosucio y Río Quito, Chocó, Colombia. *Revista de la Academia Colombiana de Ciencias Exactas, Físicas y Naturales*, 47(185), 977–995. [doi:10.18257/raccefyn.1961](https://doi.org/10.18257/raccefyn.1961)
